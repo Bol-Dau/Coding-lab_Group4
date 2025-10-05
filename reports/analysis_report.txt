@@ -1,0 +1,48 @@
+======================================
+Log Analysis Report
+Date: Sun 05 Oct 2025 09:26:05 AM PDT
+Analyzed File: hospital_data/active_logs/hear_rate.log
+
+Device Counts:
+
+
+First Entry Timestamp: 
+Last Entry Timestamp : 
+======================================
+
+======================================
+Log Analysis Report
+Date: Sun 05 Oct 2025 09:26:28 AM PDT
+Analyzed File: hospital_data/active_logs/temperature.log
+
+Device Counts:
+
+
+First Entry Timestamp: 
+Last Entry Timestamp : 
+======================================
+
+======================================
+Log Analysis Report
+Date: Sun 05 Oct 2025 09:31:07 AM PDT
+Analyzed File: hospital_data/active_logs/heart_rate.log
+
+Device Counts:
+
+
+First Entry Timestamp: 
+Last Entry Timestamp : 
+======================================
+
+======================================
+Log Analysis Report
+Date: Sun 05 Oct 2025 09:56:04 AM PDT
+Analyzed File: hospital_data/active_logs/temperature.log
+
+Device Counts:
+
+
+First Entry Timestamp: 
+Last Entry Timestamp : 
+======================================
+
