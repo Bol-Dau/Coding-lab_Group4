@@ -30,3 +30,29 @@ if [ ! -f "$LOG_FILE" ]; then
     echo "Error: Log file '$LOG_FILE' not found."
     exit 1
 fi
+
+# Analysis
+# Assumes log format: "timestamp device_name value"
+# Example: 2025-10-04T10:30:00 DeviceA 85
+DEVICE_COUNTS=$(awk '{print $2}' "$LOG_FILE" | sort | uniq -c)
+
+FIRST_TS=$(head -n 1 "$LOG_FILE" | awk '{print $1}')
+LAST_TS=$(tail -n 1 "$LOG_FILE" | awk '{print $1}')
+
+# Append to report
+{
+    echo "======================================"
+    echo "Log Analysis Report"
+    echo "Date: $(date)"
+    echo "Analyzed File: $LOG_FILE"
+    echo
+    echo "Device Counts:"
+    echo "$DEVICE_COUNTS"
+    echo
+    echo "First Entry Timestamp: $FIRST_TS"
+    echo "Last Entry Timestamp : $LAST_TS"
+    echo "======================================"
+    echo
+} >> "$REPORT_FILE"
+
+echo " Analysis complete. Results appended to $REPORT_FILE"
