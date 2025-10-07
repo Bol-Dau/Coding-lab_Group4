@@ -32,4 +32,33 @@ archive_log() {
         exit 1
     fi
 
+# Create timestamp for renaming
+
+local timestamp
+timestamp=$(date +'%Y-%m-%d_%H-%M-%S')
+local archive_file="${archive_dir}/${log_type}_${timestamp}.log"
+
+echo "Archiving ${log_type} log..."
+
+# Move and rename the file
+
+mv "$log_file" "$archive_file" 2>/dev/null
+
+if [ $? -ne 0 ]; then
+    echo " Error: Could not move log to archive directory!"
+    exit 1
+fi
+
+# Create a new empty log for continued monitoring
+touch "$log_file"
+
+echo " Successfully archived to: $archive_file"
+}
+
+# --- Handle user choice ---
+case $choice in
+    1)
+        archive_log "$HEART_LOG" "$HEART_ARCHIVE" "heart_rate"
+        ;;
+    2)
   
