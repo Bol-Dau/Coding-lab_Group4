@@ -60,5 +60,21 @@ case $choice in
     1)
         archive_log "$HEART_LOG" "$HEART_ARCHIVE" "heart_rate"
         ;;
-    2)
-  
+    2) archive_log "$TEMP_LOG" "$TEMP_ARCHIVE" "temperature"
+        ;;
+    3)
+        archive_log "$WATER_LOG" "$WATER_ARCHIVE" "water_usage"
+        ;;
+    *)
+        echo " Invalid choice. Please run the script again and choose 1–3."
+        exit 1
+        ;;
+esac
+
+
+
+
+
+
+
+ 
