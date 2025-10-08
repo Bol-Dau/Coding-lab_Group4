@@ -1,69 +1,103 @@
-# Hospital Data Monitoring & Archival System
+# Hospital Data Monitoring & Archival System Documentation
 
-## Overview
-The **Hospital Data Monitoring & Archival System** is a Linux-based automation solution designed to assist hospitals in managing and analyzing patient health log files. It performs two primary functions:
+The Hospital Data Monitoring & Archival System is a utility designed to provide **robust data management** for patient health metric log files. The system performs two essential functions: **data archival** and **log analysis**.
 
-1. **Archiving Log Files**
-2. **Analyzing Patient Data**
+***
 
-This system streamlines data management by automating the archiving and analysis of health metrics such as heart rate, temperature, and water usage.
+## Key Features
 
----
+### 1. Log File Archival
 
-## 1. Archiving Log Files
+This function allows users to archive selected log files for **efficient storage** and **space management**.
 
-Archiving files helps in:
-- **Storing data efficiently**
-- **Saving and managing disk space**
-- **Simplifying data transfer**
-- **Preserving original file permissions**
+* **Data Preservation:** Archiving files helps in **transferring data** easily and preserves the **original permissions** of the file, making restoration simple.
+* **Continuous Cycle:** After a log file is archived (moved and compressed/packaged), the system automatically creates a **new, similar file**. This allows patient monitoring to continue uninterrupted, maintaining a **seamless data management cycle**.
 
-The Hospital Monitoring & Archival System allows you to **archive any hospital log file of your choice**. Once a file is archived, a new log file with the same name is automatically created so that monitoring of patients’ health metrics continues seamlessly.
+### 2. Log Data Analysis
 
-This cyclical archiving process ensures that:
-- No patient data is lost.
-- Old data remains safely stored.
-- New data collection continues uninterrupted.
+This feature provides **insightful data analysis** for monitoring patient health metrics.
 
-This is the **first core function** and beauty of our system.
+* **Custom Selection:** You can choose which specific log file to analyze.
+* **Detailed Reporting:** The system generates a report containing key metrics appended to a central report file. The analyzed data includes:
+    * **Device Counts**: The total count of entries recorded by each individual device (e.g., Temp\_Recorder\_A).
+    * **Timestamps**: The specific **time stamp for the first entry** and the **time stamp for the last entry** found in the log file.
 
----
+***
 
-## 2. Data Analysis
+## 🛠️ Setup and Prerequisites
 
-Beyond archiving, the Hospital Monitoring & Archival System offers intelligent **data analysis capabilities**.
+To ensure the system runs correctly, the following directory structure must exist in your project root. The system uses the `mkdir -p` command to create the necessary directories if they are missing.
 
-The system enables you to:
-- Select a specific log file to analyze.
-- View **device usage counts** (e.g., how many times each device appears in the log).
-- Identify **timestamps for the first and last recorded entries** for each device.
+You bet\! Here's the complete `README.md` file, formatted neatly into a single block with important keywords **highlighted**, ready for you to copy and paste.
 
-This provides valuable insights into:
-- Device activity trends.
-- Patient monitoring frequency.
-- Operational patterns across different devices.
+```markdown
+# Hospital Data Monitoring & Archival System Documentation
 
-This is the **second core function** and another key strength of our system.
+The Hospital Data Monitoring & Archival System is a utility designed to provide **robust data management** for patient health metric log files. The system performs two essential functions: **data archival** and **log analysis**.
 
----
+***
 
-## Features
-- Interactive user interface via terminal menu.
-- Log file selection and validation.
-- Automated data summarization and reporting.
-- Report generation saved to `reports/analysis_report.txt`.
-- Timestamp tracking for data monitoring.
+## Key Features
 
----
+### 1. Log File Archival
 
-## Technologies Used
-- **Shell Scripting (Bash)**
-- **AWK**, **GREP**, **SORT**, **UNIQ**, **HEAD**, **TAIL**
-- **DATE**, **MV**, **TOUCH**
-- **Linux File Management and Archival Utilities**
+This function allows users to archive selected log files for **efficient storage** and **space management**.
 
----
+* **Data Preservation:** Archiving files helps in **transferring data** easily and preserves the **original permissions** of the file, making restoration simple.
+* **Continuous Cycle:** After a log file is archived (moved and compressed/packaged), the system automatically creates a **new, similar file**. This allows patient monitoring to continue uninterrupted, maintaining a **seamless data management cycle**.
 
-## Directory Structure
+### 2. Log Data Analysis
 
+This feature provides **insightful data analysis** for monitoring patient health metrics.
 
+* **Custom Selection:** You can choose which specific log file to analyze.
+* **Detailed Reporting:** The system generates a report containing key metrics appended to a central report file. The analyzed data includes:
+    * **Device Counts**: The total count of entries recorded by each individual device (e.g., Temp\_Recorder\_A).
+    * **Timestamps**: The specific **time stamp for the first entry** and the **time stamp for the last entry** found in the log file.
+
+***
+
+## 🛠️ Setup and Prerequisites
+
+To ensure the system runs correctly, the following directory structure must exist in your project root. The system uses the `mkdir -p` command to create the necessary directories if they are missing.
+
+```
+
+.
+└── hospital\_data/
+├── active\_logs/    \# Location of the current log files
+├── archived\_logs/  \# Destination for archived .tar files
+└── reports/        \# Destination for the analysis\_report.txt
+
+```
+
+### Required Files
+
+The shell scripts require the following log files to exist within the `hospital_data/active_logs/` directory for monitoring:
+
+* `heart_rate_log.log`
+* `temperature_log.log`
+* `water_usage_log.log`
+
+***
+
+## 💻 Usage
+
+The system is primarily operated using two interactive shell scripts:
+
+### 1. Archiving Logs (`archive_logs.sh`)
+
+This script handles the interactive archival process.
+
+1.  Execute the script: `./archive_logs.sh`
+2.  The script will prompt you to **select one of the three log files** for archiving.
+3.  The file will be archived using the **uncompressed `tar` utility** and moved to the designated `archived_logs` folder. A new log file is then created to restart monitoring.
+
+### 2. Analyzing Logs (`analyze_log.sh`)
+
+This script handles the data analysis process.
+
+1.  Execute the script: `./analyze_log.sh`
+2.  The script will prompt you to **select a log file for analysis**.
+3.  The analysis results will be displayed simultaneously on the terminal **and** permanently appended to the file: `hospital_data/reports/analysis_report.txt`.
+```
