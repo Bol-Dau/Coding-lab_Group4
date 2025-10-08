@@ -1,27 +1,69 @@
-#A documentation about the Hospital Data Monitoring $ Archival System.
-The Hospital Data Monitoring & Archival System is a system built to
-perform specifically two functions:
+# Hospital Data Monitoring & Archival System
 
-1.) Archiving log files of your choice
-Archiving files helps in storing data, saving and managing space,
-and it also helps in transfering the data, since archived files are
-easier and simpler to transmit. Archieved files also store the
-original permissions of the file, making it simple to restore files
-to thier original form.
-About the Hospital Monitoring & Archival System, it offers you the
-opportunity to archieve any of the log files for your hospital.
-After archiving a file, a new similar file is created, as the
-monitoring for you patientss health metrics continues. Their
-information can still be archieved, turning the iformation into a
-cycle.
-Thats the first beauty of our monitoring and archival system.
+## Overview
+The **Hospital Data Monitoring & Archival System** is a Linux-based automation solution designed to assist hospitals in managing and analyzing patient health log files. It performs two primary functions:
 
-2.) Data Analysis
-The Hospital Monitoring and Archival System doesn't only help you 
-archive your log files, but it also helps you to analyze your data.
-With the help of our system, you can pick which patient's health 
-metrics to analyze. The analyzed data contains counts per device,
-time stamp for the first and last entry for each device. 
-This is the second beauty of our device.
+1. **Archiving Log Files**
+2. **Analyzing Patient Data**
+
+This system streamlines data management by automating the archiving and analysis of health metrics such as heart rate, temperature, and water usage.
+
+---
+
+## 1. Archiving Log Files
+
+Archiving files helps in:
+- **Storing data efficiently**
+- **Saving and managing disk space**
+- **Simplifying data transfer**
+- **Preserving original file permissions**
+
+The Hospital Monitoring & Archival System allows you to **archive any hospital log file of your choice**. Once a file is archived, a new log file with the same name is automatically created so that monitoring of patients’ health metrics continues seamlessly.
+
+This cyclical archiving process ensures that:
+- No patient data is lost.
+- Old data remains safely stored.
+- New data collection continues uninterrupted.
+
+This is the **first core function** and beauty of our system.
+
+---
+
+## 2. Data Analysis
+
+Beyond archiving, the Hospital Monitoring & Archival System offers intelligent **data analysis capabilities**.
+
+The system enables you to:
+- Select a specific log file to analyze.
+- View **device usage counts** (e.g., how many times each device appears in the log).
+- Identify **timestamps for the first and last recorded entries** for each device.
+
+This provides valuable insights into:
+- Device activity trends.
+- Patient monitoring frequency.
+- Operational patterns across different devices.
+
+This is the **second core function** and another key strength of our system.
+
+---
+
+## Features
+- Interactive user interface via terminal menu.
+- Log file selection and validation.
+- Automated data summarization and reporting.
+- Report generation saved to `reports/analysis_report.txt`.
+- Timestamp tracking for data monitoring.
+
+---
+
+## Technologies Used
+- **Shell Scripting (Bash)**
+- **AWK**, **GREP**, **SORT**, **UNIQ**, **HEAD**, **TAIL**
+- **DATE**, **MV**, **TOUCH**
+- **Linux File Management and Archival Utilities**
+
+---
+
+## Directory Structure
 
 
