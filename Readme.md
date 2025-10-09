@@ -17,11 +17,9 @@ cycle.
 Thats the first beauty of our monitoring and archival system.
 
 2.) Data Analysis
-The Hospital Monitoring and Archival System doesn't only help you 
+The Hospital Monitoring and Archival System doesn't only help you
 archive your log files, but it also helps you to analyze your data.
-With the help of our system, you can pick which patient's health 
+With the help of our system, you can pick which patient's health
 metrics to analyze. The analyzed data contains counts per device,
-time stamp for the first and last entry for each device. 
-This is the second beauty of our device.
-
-
+time stamp for the first and last entry for each device.
+This is the second beauty of our device." 
