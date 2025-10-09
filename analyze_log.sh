@@ -22,7 +22,7 @@ while [[ "$CONTINUATION" == "y" || "$CONTINUATION" == "Y" ]]; do       # This is
 	echo "3) Water Usage (water_usage_log.log)"
 	echo "::::::::::::::::::::::::::::::::::::::::::::::::::"
 	read -p "Enter choice (1-3): " choice
-	echo "  "
+
 
 	# Using case ... esac to solve the multiple choice answers, assigning each choice to a specific log file.
 	case "$choice" in

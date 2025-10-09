@@ -62,3 +62,16 @@ First Entry Timestamp: 02:01:06
 Last Entry Timestamp : 02:09:12
 ======================================
 
+======================================
+Log Analysis Report
+Date: Thu 09 Oct 2025 02:35:49 AM PDT
+Analyzed File: hospital_data/active_logs/heart_rate_log.log
+
+Device Counts:
+HeartRate_Monitor_A: 485
+HeartRate_Monitor_B: 485
+
+First Entry Timestamp: 02:00:56
+Last Entry Timestamp : 02:09:01
+======================================
+
