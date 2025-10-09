@@ -44,18 +44,16 @@ LAST_TS=$(tail -n 1 "$LOG_FILE" | awk '{print $1}')
 
 # Append to report
 {
-    echo "======================================"
     echo "Log Analysis Report"
     echo "Date: $(date)"
     echo "Analyzed File: $LOG_FILE"
-   
+    echo "==================================" 
     echo "Device Counts:"
     echo "$DEVICE_COUNTS"
-  
+    echo "=================================="
     echo "First Entry Timestamp: $FIRST_TS"
     echo "Last Entry Timestamp : $LAST_TS"
-    echo "======================================"
-   
+    echo "=================================="
 } >> "$REPORT_FILE"
 
 echo " Analysis complete. Results appended to $REPORT_FILE"
