@@ -52,6 +52,7 @@ while [[ "$CONTINUATION" == "y" || "$CONTINUATION" == "Y" ]]; do       # This is
 			echo "Error: Log file '$LOG_FILE' not found."
 			echo -ne "Exiting"
 			for i in {1..3};do
+
 				echo -n "."
 				sleep 1
 			done
