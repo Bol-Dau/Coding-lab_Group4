@@ -14,14 +14,25 @@ ARCHIVE_FUN() {
 	FILE_NAME="hospital_data/active_logs/$LOG_FILE"
 	ARCHIVED_FILE="hospital_data/archived_logs/$ARCHIVE_DESTINATION/${LOG_FILE}_$TIME_STAMP.log"
 
+        # Ensure that the directory for archived files exists.
+	mkdir -p "hospital_data/archived_logs/$ARCHIVE_DESTINATION"
+
         # Checking first if the file exists or not.
 	if [ -f "$FILE_NAME" ]; then
 		echo "Archiving process initiated"
                 echo "Archiving $FILE_NAME"
                 tar -cvf "$ARCHIVED_FILE" "$FILE_NAME"
-                #Creating a new similar file for continued monitoring
-                touch "$FILE_NAME"
-                echo -e "You have successfully archived your file\n"
+                
+		# Moving the source file of the archived file to give room for a new log file that will used for continued monitoring.
+        
+		if [ $? -eq 0 ]; then
+			rm $FILE_NAME
+			#Creating a new similar file for continued monitoring.
+			touch "$FILE_NAME"
+			echo -e "You have successfully archived your file\n"
+		else
+			echo "Error: The archiving process was unsucessful"
+		fi
 	else
 		echo "File not found"
 		echo -ne "Exiting"
@@ -40,11 +51,11 @@ while [[ "$CONTINUATION" == "y" || "$CONTINUATION" == "Y" ]]; do # These two arg
 	echo "  "
 	echo ":::::::::::::::::::::::::::::::::::::::::::::::"
 	echo "Choose the log file to archive: "
-	echo "1) Heart Rate"
-	echo "2) Temperature"
-	echo "3) Water Usage"  
+	echo "1) heart_rate_log.log"
+	echo "2) temperature_log.log"
+	echo "3) water_usage_log.log"
+	echo ":::::::::::::::::::::::::::::::::::::::::::::::"
 	read -p "Enter choice (1-3): " choice
-	echo "":::::::::::::::::::::::::::::::::::::::::::::::""
 	echo "   "
 	echo -ne "Processing your file"
 	for i in {1..3};do
